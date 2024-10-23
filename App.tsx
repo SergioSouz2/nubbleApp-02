@@ -5,46 +5,47 @@ import {ThemeProvider} from '@shopify/restyle';
 import {Icon} from './src/components/Icon/Icon';
 import {Text} from './src/components/Text/Text';
 import {Button} from './src/components/Button/Button';
+import {TextInput} from './src/components/TextInput/TextInput';
 
 import {theme} from './src/theme/theme';
-import {Box} from './src/components/Box/Box';
 
 function App(): React.JSX.Element {
    return (
       <ThemeProvider theme={theme}>
          <SafeAreaView>
             <View style={{paddingHorizontal: 24}}>
-               <Text preset="headingLarge">CoffStack</Text>
+               <Text marginBottom="s8" preset="headingLarge">
+                  Olá
+               </Text>
 
-               <Button marginBottom="s24" title="Primary" preset="primary" />
+               <Text marginBottom="s40" preset="paragraphLarge">
+                  Digite seu e-mail e senha para entrar
+               </Text>
 
-               <Button
-                  marginBottom="s24"
-                  title="Primary"
-                  preset="primary"
-                  disabled
+               <TextInput
+                  boxProps={{marginBottom: 's20'}}
+                  label="E-mail"
+                  placeholder="Digite seu E-mail"
                />
 
-               <Button marginBottom="s24" title="Outline" preset="outline" />
+               <TextInput
+                  label="Senha"
+                  placeholder="Digite sua senha"
+                  errorMessage="mensagem de error"
+                  RightComponet={<Icon name="eyeOff" color="gray2" />}
+                  boxProps={{marginBottom: 's10'}}
+               />
 
+               <Text color="primary" preset="paragraphSmall" bold>
+                  Esqueci minha senha
+               </Text>
+
+               <Button title="Entrar" marginTop="s48" />
                <Button
-                  marginBottom="s24"
-                  title="Outline"
+                  title="Criar uma conta"
                   preset="outline"
-                  disabled
+                  marginTop="s12"
                />
-               <Button
-                  marginBottom="s24"
-                  preset="primary"
-                  loading
-                  title="Entrar"
-               />
-
-               <Box flexDirection="row" alignItems="center" gap="s16">
-                  <Icon name="profileFill" size={100} />
-                  <Icon name="bellOn" size={50} color="carrotSecondary" />
-                  <Icon name="chatOn" size={20} />
-               </Box>
             </View>
          </SafeAreaView>
       </ThemeProvider>
